@@ -2,12 +2,11 @@ program firedac;
 
 {
   Esse programa :
-
-  1. cria uma conex„o SEM USAR o FDManager
-  2. testa se a conex„o est· correta.
-  3. Buscar um valor
-  3. alterar o valor encontrado
-
+  1. cria uma conex√£o SEM USAR o FDManager
+  2. testa se a conex√£o est√° correta.
+  3. Buscar por um valor
+  4. Ap√≥s achar o valor altera o mesmo
+  5. Cancela as altera√ß√µes efetuadas
 }
 
 {$APPTYPE CONSOLE}
@@ -59,17 +58,17 @@ begin
           qry.Open;
           writeln(Format('Estado: %s', [GetEnumName(TypeInfo(TDataSetState),Ord(qry.State))]));
 
-          // qry.Edit aqui d· erro, porque ainda n„o È o registro selecionado
+          // qry.Edit aqui d√° erro, porque ainda n√£o √© o registro selecionado
           if qry.Locate('COUNTRY','Brazil',[]) then
           begin
             writeln('Achei o registro');
-            qry.Edit; // Seleciona o registro para ediÁ„o
+            qry.Edit; // Seleciona o registro para edi√ß√£o
             writeln(Format('Estado: %s', [GetEnumName(TypeInfo(TDataSetState),Ord(qry.State))]));
             qry.FieldByName('COUNTRY').AsString := 'Brazil 22';
             writeln('Acabei de alterar o valor');
           end
           else
-            writeln('N„o encontrei o registro para ediÁ„o');
+            writeln('N√£o encontrei o registro para edi√ß√£o');
 
           writeln('O valor do registro e : ', qry.FieldByName('COUNTRY').AsString );
           writeln('Agora vou cancelar as alteracoes');
