@@ -3,10 +3,10 @@ program firedac;
 {
   Esse programa :
 
-  1. cria uma conex„o SEM USAR o FDManager
-  2. testa se a conex„o est· correta.
-  3. Buscar um valor
-  3. alterar o valor encontrado
+  1. Cria um datamodule em tempo de design (arrastando componentes)
+  2. Agora, no c√≥digo, instancia o objeto Data module
+  3. Abre a conex√£o 
+  3. Executa uma consulta simples
 
 }
 
@@ -26,7 +26,7 @@ begin
 
 
       writeln('Antes de abrir');
-      DM := Tdm.Create (nil);   { Necess·rio criar o DM }
+      DM := Tdm.Create (nil);   { Necess√°rio criar o DM }
       DM.FDConn.Open;
       writeln('Abriu a conexao');
 
