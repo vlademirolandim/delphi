@@ -3,11 +3,8 @@ program firedac;
 {
   Esse programa :
 
-  1. cria uma conex„o SEM USAR o FDManager
-  2. testa se a conex„o est· correta.
-  3. Buscar um valor
-  3. alterar o valor encontrado
-
+  Usa uma classe para realizar opera√ß√µes de busca na tabela.
+  
 }
 
 {$APPTYPE CONSOLE}
@@ -29,7 +26,7 @@ begin
 
 
       writeln('Antes de abrir');
-      DM := Tdm.Create (nil);   { Necess·rio criar o DM }
+      DM := Tdm.Create (nil);   { Necess√°rio criar o DM }
       DM.FDConn.Open;
       writeln('Abriu a conexao');
 
